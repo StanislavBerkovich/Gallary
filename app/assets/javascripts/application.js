@@ -60,6 +60,15 @@ function use_animation(element) {
 
 };
 
+$(document).on('page:change',function(){
+    $('#modal').ready(function(){
+
+        $('#myModal').modal('toggle')
+
+    });
+
+});
+
 
 
 
