@@ -75,7 +75,11 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
-          <%= bootstrap_flash %>
+
+
+
+          <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
           <%= yield %>
         </div>
       </div><!--/row-->

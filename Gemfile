@@ -43,3 +43,6 @@ gem 'paperclip'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
