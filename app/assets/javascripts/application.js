@@ -18,6 +18,7 @@
 //= require_tree .
 
 var $animation_type = 0;
+var $slide_time = 5000;
 
 
 $(document).ready(function () {
@@ -27,6 +28,10 @@ $(document).ready(function () {
 
     $('#fadeIn').click(function () {
         $animation_type = 0;
+    });
+
+    $('#time').on('input', function(){
+        $slide_time = this.value * 1000
     });
 
 
@@ -48,7 +53,7 @@ function slideShow() {
     use_animation(next);
     next.addClass('show');
 
-    setTimeout(slideShow, 5000);
+    setTimeout(slideShow, $slide_time);
 };
 
 function use_animation(element) {
@@ -62,11 +67,7 @@ function use_animation(element) {
 };
 
 $(document).on('page:change', function () {
-    $('#modal').ready(function () {
 
-        $('#myModal').modal('toggle')
-
-    });
 
     $("#pictures-list").sortable({
         connectWith: '.connected',
@@ -98,6 +99,8 @@ function orphan(which) {
             .addClass('empty');
     }
 }
+
+
 
 
 

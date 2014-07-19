@@ -3,12 +3,14 @@
       <% if @pictures.first == p %>
           <div class="show"><%= image_tag p.image.url(:medium) %></div>
       <% else %>
-          <div class='slide' display='none'><%= image_tag p.image.url(:medium) %></div>
+          <div class='slide'><%= image_tag p.image.url(:medium) %></div>
       <% end %>
 
   <% end %>
 </div>
 <div id="effects">
+  <label>Speed:</label>
+  <input type="range" min="1" max="10" id="time" value="5"></p>
   <button id="fadeIn" class="btn">Fade In</button>
   <button id="slide" class="btn">Slide</button>
   <button id="simple" class="btn">Simple</button>
