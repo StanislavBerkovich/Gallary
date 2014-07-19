@@ -39,3 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'paperclip'
+
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
