@@ -15,3 +15,53 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+var $animation_type = 0;
+
+
+$(document).ready(function () {
+    $('#photos').ready(function () {
+        slideShow();
+    });
+
+    $('#fadeIn').click(function(){
+        $animation_type = 0;
+    });
+
+
+    $('#slide').click(function(){
+        $animation_type = 1;
+    });
+
+    $('#simple').click(function(){
+        $animation_type = 2;
+    });
+});
+
+function slideShow() {
+    var current = $('#photos .show');
+    var next = current.next().length ? current.next() : current.siblings().first();
+
+    current.hide();
+    current.removeClass('show');
+    use_animation(next);
+    next.addClass('show');
+
+    setTimeout(slideShow, 5000);
+};
+
+function use_animation(element) {
+    if ($animation_type === 0)
+        element.fadeIn(1000);
+    else if ($animation_type === 1)
+        element.show('slide');
+    else if ($animation_type === 2)
+        element.show(null)
+
+};
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index, :slide_show]
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /pictures
@@ -58,6 +58,10 @@ class PicturesController < ApplicationController
       format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def slide_show
+    @pictures = Picture.all
   end
 
   private

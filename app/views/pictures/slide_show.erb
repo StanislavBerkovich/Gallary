@@ -1,0 +1,13 @@
+<div id="photos">
+  <% @pictures.each_with_index do |p| %>
+      <% if @pictures.first == p %>
+          <div class="show"><%= image_tag p.image.url(:medium) %></div>
+      <% else %>
+          <div class='slide' display='none'><%= image_tag p.image.url(:medium) %></div>
+      <% end %>
+
+  <% end %>
+</div>
+<button id="fadeIn" class="btn">Fade In</button>
+<button id="slide" class="btn">Slide</button>
+<button id="simple" class="btn">Simple</button>
