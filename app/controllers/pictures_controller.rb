@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /pictures
