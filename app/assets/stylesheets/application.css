@@ -12,4 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
+
+.list{
+    list-style-type: none;
+}

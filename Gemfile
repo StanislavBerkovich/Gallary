@@ -46,3 +46,4 @@ gem "twitter-bootstrap-rails"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+gem 'jquery-ui-rails'

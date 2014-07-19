@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
@@ -24,16 +25,16 @@ $(document).ready(function () {
         slideShow();
     });
 
-    $('#fadeIn').click(function(){
+    $('#fadeIn').click(function () {
         $animation_type = 0;
     });
 
 
-    $('#slide').click(function(){
+    $('#slide').click(function () {
         $animation_type = 1;
     });
 
-    $('#simple').click(function(){
+    $('#simple').click(function () {
         $animation_type = 2;
     });
 });
@@ -60,14 +61,46 @@ function use_animation(element) {
 
 };
 
-$(document).on('page:change',function(){
-    $('#modal').ready(function(){
+$(document).on('page:change', function () {
+    $('#modal').ready(function () {
 
         $('#myModal').modal('toggle')
 
     });
 
+    $("#pictures-list").sortable({
+        connectWith: '.connected',
+        placeholder: 'ui-state-highlight',
+        receive: function (event, ui) {
+            adopt(this)
+        },
+        remove: function (event, ui) {
+            orphan(this)
+        }
+    }).disableSelection();
+
 });
+
+
+
+
+function adopt(which) {
+    if ($(which).hasClass('empty')) {
+        $(which).removeClass('empty').find('.empty').remove();
+    }
+}
+
+
+function orphan(which) {
+    if ($(which).children().length == 0) {
+        $(which)
+            .append($('<li class="empty">empty</li>'))
+            .addClass('empty');
+    }
+}
+
+
+
 
 
 
