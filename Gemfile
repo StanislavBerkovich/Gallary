@@ -47,3 +47,5 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'jquery-ui-rails'
+
+gem "paperclip-dropbox"

@@ -20,8 +20,35 @@
 var $animation_type = 0;
 var $slide_time = 5000;
 
+function slideShow() {
+    if($('#photos').length == 0) {
+        $slide_time = 5000;
+        $animation_type = 0;
+        return
+    }
+    var current = $('#photos .show');
+    var next = current.next().length ? current.next() : current.siblings().first();
 
-$(document).ready(function () {
+    current.hide();
+    current.removeClass('show');
+    use_animation(next);
+    next.addClass('show');
+
+    setTimeout(slideShow, $slide_time);
+};;
+
+function use_animation(element) {
+    if ($animation_type === 0)
+        element.fadeIn(1000);
+    else if ($animation_type === 1)
+        element.show('slide');
+    else if ($animation_type === 2)
+        element.show(null)
+
+};
+
+var on_load = function () {
+
     $('#photos').ready(function () {
         slideShow();
     });
@@ -42,32 +69,6 @@ $(document).ready(function () {
     $('#simple').click(function () {
         $animation_type = 2;
     });
-});
-
-function slideShow() {
-    var current = $('#photos .show');
-    var next = current.next().length ? current.next() : current.siblings().first();
-
-    current.hide();
-    current.removeClass('show');
-    use_animation(next);
-    next.addClass('show');
-
-    setTimeout(slideShow, $slide_time);
-};
-
-function use_animation(element) {
-    if ($animation_type === 0)
-        element.fadeIn(1000);
-    else if ($animation_type === 1)
-        element.show('slide');
-    else if ($animation_type === 2)
-        element.show(null)
-
-};
-
-$(document).on('page:change', function () {
-
 
     $("#pictures-list").sortable({
         connectWith: '.connected',
@@ -80,7 +81,11 @@ $(document).on('page:change', function () {
         }
     }).disableSelection();
 
-});
+}
+
+$(document).on('page:load', on_load );
+
+$(document).ready(on_load);
 
 
 
