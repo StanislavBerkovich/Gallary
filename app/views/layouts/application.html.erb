@@ -46,7 +46,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <%= link_to 'Gallery', root_path, class: 'brand' %>
+
       <div class="container-fluid nav-collaps pull-right">
         <ul class="nav ">
           <% if user_signed_in? %>
@@ -68,10 +68,9 @@
     <div class="span3">
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
-          <li class="nav-header">Sidebar</li>
-          <li><%= link_to "Slide show", slide_show_pictures_path %></li>
-          <li><%= link_to "Link2", "/path2" %></li>
-          <li><%= link_to "Link3", "/path3" %></li>
+          <li class="nav-header">Menu</li>
+          <li><%= link_to 'Gallery Redactor', root_path, class: 'brand' %></li>
+          <li><%= link_to "Slide Show", slide_show_pictures_path %></li>
         </ul>
       </div>
       <!--/.well -->
@@ -88,7 +87,7 @@
   <!--/row-->
 
   <footer>
-    <p>&copy; Company 2014</p>
+    <p>&copy; Metelski Pavel 2014</p>
   </footer>
 
 </div>

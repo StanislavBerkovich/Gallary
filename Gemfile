@@ -46,6 +46,7 @@ gem "twitter-bootstrap-rails"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+gem 'omniauth-twitter'
 gem 'jquery-ui-rails'
 
 gem "paperclip-dropbox"

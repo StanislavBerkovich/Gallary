@@ -23,6 +23,12 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
+    p_params = picture_params
+    if p_params == nil
+      @picture = Picture.new
+      redirect_to new_picture_path, alert: "No picture!"
+      return
+    end
     @picture = Picture.new(picture_params)
 
     respond_to do |format|
@@ -75,6 +81,10 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:image)
+      if(params[:picture])
+        params.require(:picture).permit(:image)
+      else
+        nil
+      end
     end
 end

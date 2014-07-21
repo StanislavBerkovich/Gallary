@@ -2,4 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
+<% if alert %>
+    <div class='alert alert-error'>
+        <%= alert %>
+    </div>
+<% end %>
 <%= render :partial => 'form' %>

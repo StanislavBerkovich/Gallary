@@ -35,7 +35,7 @@ function slideShow() {
     next.addClass('show');
 
     setTimeout(slideShow, $slide_time);
-};;
+};
 
 function use_animation(element) {
     if ($animation_type === 0)
@@ -49,9 +49,27 @@ function use_animation(element) {
 
 var on_load = function () {
 
-    $('#photos').ready(function () {
+    $("#photos").sortable({
+        connectWith: '.connected',
+        placeholder: 'ui-state-highlight',
+        receive: function (event, ui) {
+            adopt(this)
+        },
+        remove: function (event, ui) {
+            orphan(this)
+        }
+    }).disableSelection();
+
+    $('#go').click(function(){
+        elements = $('.show')
+        elements.removeClass('show')
+        elements.addClass('slide')
+        elements.last().removeClass('slide')
+        elements.last().addClass('show')
         slideShow();
     });
+
+
 
     $('#fadeIn').click(function () {
         $animation_type = 0;
@@ -70,16 +88,7 @@ var on_load = function () {
         $animation_type = 2;
     });
 
-    $("#pictures-list").sortable({
-        connectWith: '.connected',
-        placeholder: 'ui-state-highlight',
-        receive: function (event, ui) {
-            adopt(this)
-        },
-        remove: function (event, ui) {
-            orphan(this)
-        }
-    }).disableSelection();
+
 
 }
 
