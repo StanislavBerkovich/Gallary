@@ -1,6 +1,9 @@
 <ul id="photos" class="connected list">
   <% @pictures.each_with_index do |p| %>
-          <li class="show"><%= image_tag p.image.url(:medium) %></li>
+          <li class="show">
+            <%= image_tag p.image.url(:medium) %>
+            <button class='btn warning delete'>Delete</button>
+          </li>
   <% end %>
 </ul>
 

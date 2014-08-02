@@ -61,6 +61,8 @@ var on_load = function () {
     }).disableSelection();
 
     $('#go').click(function(){
+        $('.delete').remove()
+        $(this).remove()
         elements = $('.show')
         elements.removeClass('show')
         elements.addClass('slide')
@@ -87,7 +89,9 @@ var on_load = function () {
     $('#simple').click(function () {
         $animation_type = 2;
     });
-
+    $('.delete').click(function(){
+        $(this).parent().remove()
+    });
 
 
 }
