@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 var $animation_type = 0;
 var $slide_time = 5000;
 
